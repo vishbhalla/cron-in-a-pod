@@ -1,0 +1,1 @@
+* * * * * bash -c '. /tmp/env.sh && /tmp/echo_env.sh' >> /tmp/cron.log 2>&1
