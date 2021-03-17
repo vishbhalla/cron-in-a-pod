@@ -13,5 +13,5 @@ RUN chmod +x /tmp/echo_env.sh && touch /tmp/cron.log
 # Install our cron job in root user's crontab, using the file we copied over above:
 RUN crontab -u root /tmp/echo_env.cron
 
-# Start the container spitting out the environment into /tmp/env.sh which the cronjob can use:
+# Start the container by starting the cron service, and spit out the logfile the cron should be writing to:
 ENTRYPOINT export -p | grep -v LS_COLORS > /tmp/env.sh && service cron start && tail -f /tmp/cron.log
